@@ -1,0 +1,20 @@
+.TodoContainer {
+  width: 500px;
+  margin: 20px auto;
+  .Title {
+    font-size: 100px;
+    font-weight: 100;
+    color: antiquewhite;
+  }
+  .List {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+  }
+  .Item {
+      
+  }
+  .ItemDone {
+    text-decoration: line-through;
+  }
+}
