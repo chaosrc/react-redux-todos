@@ -22,8 +22,8 @@ export const AddTodo = props => {
   };
   return (
     <div>
-      <input value={todo} onChange={e => setTodo(e.target.value)} />{" "}
-      <button onClick={handleAdd}>添加</button>
+      <input value={todo} onChange={e => setTodo(e.target.value)} style={{fontSize: '24px'}} />{" "}
+      <button onClick={handleAdd} className={styles.Add}>添加</button>
     </div>
   );
 };
@@ -34,7 +34,7 @@ const TodoItem = props => {
     props.onDone && props.onDone(e.target.checked);
   };
   return (
-    <li className={`${props.isDone ? styles.ItemDone : ""}`}>
+    <li className={`${styles.Item} ${props.isDone ? styles.ItemDone : ""}`}>
       <input
         type="checkbox"
         checked={props.isDone}
