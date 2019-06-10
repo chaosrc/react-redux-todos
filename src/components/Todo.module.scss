@@ -15,7 +15,10 @@
   }
   .Item {
     margin-top: 15px;
-    font-size: 16px;
+    font-size: 18px;
+    input {
+        margin-right: 10px;
+    }
   }
   .ItemDone {
     text-decoration: line-through;
