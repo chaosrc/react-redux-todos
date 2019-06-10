@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Todo.module.scss";
+import classnames from "classnames";
+
 export const TodoContainer = props => {
   return (
     <div className={styles.TodoContainer} {...props}>
@@ -22,8 +24,14 @@ export const AddTodo = props => {
   };
   return (
     <div>
-      <input value={todo} onChange={e => setTodo(e.target.value)} style={{fontSize: '24px'}} />{" "}
-      <button onClick={handleAdd} className={styles.Add}>添加</button>
+      <input
+        value={todo}
+        onChange={e => setTodo(e.target.value)}
+        style={{ fontSize: "24px" }}
+      />{" "}
+      <button onClick={handleAdd} className={styles.Add}>
+        添加
+      </button>
     </div>
   );
 };
@@ -33,13 +41,15 @@ const TodoItem = props => {
     console.log(e.target);
     props.onDone && props.onDone(e.target.checked);
   };
+  const className = classnames(styles.Item, {
+    [styles.ItemDone]: props.isDone
+  });
   return (
-    <li className={`${styles.Item} ${props.isDone ? styles.ItemDone : ""}`}>
-      <input
-        type="checkbox"
-        checked={props.isDone}
-        onChange={handleDone}
-      />
+    <li
+      className={className}
+      // className={`${styles.Item} ${props.isDone ? styles.ItemDone : ""}`}
+    >
+      <input type="checkbox" checked={props.isDone} onChange={handleDone} />
       {props.text}
     </li>
   );
