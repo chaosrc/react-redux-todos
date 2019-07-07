@@ -55,3 +55,31 @@ export const InputHooks = () => {
     </>
   );
 };
+
+
+export const Clear = () => {
+
+    useEffect(() => {
+        const id = setInterval(() => {
+            console.log('hello effect')
+        }, 300)
+        return () => {
+            clearInterval(id)
+            console.log('clear')
+        }
+    }, [])
+    return (
+        <span>Clear Effect</span>
+    )
+}
+
+export const PerformClear = () => {
+    const [isStart, setStart] = useState(false)
+
+    return (
+        <div>
+            {isStart && <Clear></Clear>}
+            <button onClick={() => setStart(!isStart)}>Start Clear</button>
+        </div>
+    )
+}
