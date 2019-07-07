@@ -17,17 +17,18 @@ export class Input extends Component {
     this.setState({ value: e.target.value });
   };
   handleCount = () => {
-    this.setState(preState = ({count: preState.count + 1}))
-  }
+    this.setState((preState) => ({ count: preState.count + 1 }));
+  };
 
   render() {
     return (
       <>
         <input value={this.state.value} onChange={this.handleChange} />
         <div>
-        {this.state.count}<button ></button>
+          {this.state.count}
+          <button  onClick={this.handleCount}>+</button>
         </div>
-      <>
+      </>
     );
   }
 }
@@ -38,9 +39,23 @@ export class Input extends Component {
 ```jsx
 export const InputHooks = () => {
   const [value, setValue] = useState("");
-  return <input value={value} onChange={e => setValue(e.target.value)} />;
+  const [count, setCount] = useState(0);
+  return (
+      <>
+      <input value={value} onChange={e => setValue(e.target.value)} />
+      <div>
+          {count} <button onClick={() => setCount(count + 1)}>+</button>
+      </div>
+      </>
+  )
 };
 ```
+
+`useState()` 方法接受一个参数做为状态的初始值。React 会将状态保留，每次调用会拿到状态。
+
+`useState()` 会返回一个数组，数组的第一个值是**当前状态**，第二个值是**更新状态的函数**。一般会使用 ES6 里面的[数组解构](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring)(Array destructuring) 来定义变量名
+
+
 
 #### 生命周期函 useEffect
 class 组件
