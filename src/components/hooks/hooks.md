@@ -9,15 +9,26 @@ Hooks 是 React 16.8 中新增的功能，可以在不用 class 的情况下使�
 ```jsx
 export class Input extends Component {
   state = {
-    value: ""
+    value: "",
+    count: 0
   };
 
   handleChange = e => {
     this.setState({ value: e.target.value });
   };
+  handleCount = () => {
+    this.setState(preState = ({count: preState.count + 1}))
+  }
 
   render() {
-    return <input value={this.state.value} onChange={this.handleChange} />;
+    return (
+      <>
+        <input value={this.state.value} onChange={this.handleChange} />
+        <div>
+        {this.state.count}<button ></button>
+        </div>
+      <>
+    );
   }
 }
 ```
@@ -32,7 +43,6 @@ export const InputHooks = () => {
 ```
 
 #### 生命周期函 useEffect
-
 class 组件
 ```jsx
 export class Input extends Component {
