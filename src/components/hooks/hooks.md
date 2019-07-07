@@ -1,6 +1,12 @@
+
+
 ### React hooks
 
+
+
 Hooks 是 React 16.8 中新增的功能，可以在不用 class 的情况下使用 state 和其他 React 特性 [^1]，100% 向后兼容，可以与 class 组件共存。
+
+
 
 #### 组件状态 useState
 
@@ -55,7 +61,9 @@ export const InputHooks = () => {
 
 `useState()` 会返回一个数组，数组的第一个值是**当前状态**，第二个值是**更新状态的函数**。一般会使用 ES6 里面的[数组解构](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring)(Array destructuring) 来定义变量名
 
-#### 生命周期函 useEffect
+
+
+#### 生命周期 useEffect
 
 class 组件
 
@@ -149,10 +157,31 @@ export const PerformClear = () => {
 };
 ```
 
+
+
+#### Hooks 的规则 [^2]
+
+- 只能在 React 函数组件、或者自定义 Hooks 中调用
+- 只能在函数的顶层调用，不能在循环、条件语句或者内部函数中调用
+
+Tips:
+ 通过 Eslint插件 `eslint-plugin-react-hooks` 来控制
+
+
+
 #### 性能优化 useMemo 和 useCallback
+
+
 
 #### 其他 hooks：useContext、useReducer
 
+
+
 #### 自定义 Hooks
 
+参考 react-use ：https://github.com/streamich/react-use
+
+
+
 [^1]: https://reactjs.org/docs/hooks-intro.html
+[^2]: https://reactjs.org/docs/hooks-rules.html
