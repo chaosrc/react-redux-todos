@@ -7,23 +7,18 @@ export class Input extends Component {
     count: 0
   };
 
-<<<<<<< HEAD
-    async componentDidMount() {
-        const value = await getInputValue()
-        this.setState({value: value})
-    }
+  async componentDidMount() {
+    const value = await getInputValue();
+    this.setState({ value: value });
+  }
 
-    handleChange = (e) => {
-        this.setState({value: e.target.value})
-    }
-=======
   handleChange = e => {
     this.setState({ value: e.target.value });
   };
+
   handleCount = () => {
-    this.setState((preState) => ({ count: preState.count + 1 }));
+    this.setState(preState => ({ count: preState.count + 1 }));
   };
->>>>>>> hooks-state-2
 
   render() {
     return (
@@ -31,7 +26,7 @@ export class Input extends Component {
         <input value={this.state.value} onChange={this.handleChange} />
         <div>
           {this.state.count}
-          <button  onClick={this.handleCount}>+</button>
+          <button onClick={this.handleCount}>+</button>
         </div>
       </>
     );
@@ -40,30 +35,23 @@ export class Input extends Component {
 
 // state with hooks
 export const InputHooks = () => {
-<<<<<<< HEAD
-    const [value, setValue] = useState('')
-
-    useEffect(() => {
-        const update = async () => {
-            const value = await getInputValue()
-            setValue(value)
-        }
-        update()
-    }, [])
-
-
-    return (<input value={value} onChange={e => setValue(e.target.value)}></input>)
-}
-=======
   const [value, setValue] = useState("");
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const update = async () => {
+      const value = await getInputValue();
+      setValue(value);
+    };
+    update();
+  }, []);
+
   return (
-      <>
+    <>
       <input value={value} onChange={e => setValue(e.target.value)} />
       <div>
-          {count} <button onClick={() => setCount(count + 1)}>+</button>
+        {count} <button onClick={() => setCount(count + 1)}>+</button>
       </div>
-      </>
-  )
+    </>
+  );
 };
->>>>>>> hooks-state-2
