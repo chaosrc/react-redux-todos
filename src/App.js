@@ -7,6 +7,7 @@ import { todoApp } from './pages/reducer';
 import { HashRouter, Route, Link, Redirect } from "react-router-dom";
 import { Home } from './pages/Home'
 import { About } from './pages/About'
+import HooksApp from './components/hooks/app'
 
 const state = combineReducers({ todos: todoApp })
 const store = createStore(state, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
@@ -32,12 +33,16 @@ function App() {
               <li>
                 <Link to="/todo">Todo</Link>
               </li>
+              <li>
+                <Link to="/hooks">Hooks</Link>
+              </li>
             </ul>
           </nav>
           <Route path="/" exact render={() => <Redirect to="/home"></Redirect>}></Route>
           <Route path="/home" component={Home} ></Route>
           <Route path="/todo" component={TodoApp} ></Route>
           <Route path="/about" exact component={About}></Route>
+          <Route path="/hooks" component={HooksApp}></Route>
         </HashRouter>
       </Provider>
     </div>
